@@ -23,4 +23,20 @@ class Task extends Model
     const STATUS_PENDING = 'pending';
     const STATUS_QUEUED = 'queued';
     const STATUS_ON_REVIEW = 'review';
+
+    public static $adminActiveStatuses = [
+        self::STATUS_NEW,
+        self::STATUS_ACCEPTED,
+        self::STATUS_IN_PROGRESS,
+        self::STATUS_DONE,
+        self::STATUS_FEEDBACK,
+        self::STATUS_PRICING,
+    ];
+
+    public static $clientActiveStatuses = [
+        self::STATUS_NEW,
+        self::STATUS_IN_PROGRESS,
+        self::STATUS_DONE,
+        self::STATUS_ON_REVIEW,
+    ];
 }
