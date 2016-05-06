@@ -15,20 +15,24 @@ class DashboardController extends Controller
      */
     public function index(Request $request)
     {
+        /**
+         * Дата постановки	Приоритет	Описание	url / где	Стоимость	В проге	Статус	комментарий
+         */
+            return view('home');
         if ($request->user()->isAdmin()) {
-            return $this->admin();
+
         }
 
         return $this->client();
     }
 
 
-    public function admin()
+    protected function admin()
     {
-        return view('home');
+
     }
 
-    public function client()
+    protected function client()
     {
         return view('client');
     }

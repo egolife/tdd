@@ -39,4 +39,26 @@ class Task extends Model
         self::STATUS_DONE,
         self::STATUS_ON_REVIEW,
     ];
+
+    public static $priorities = [
+        self::PRIORITY_LOW,
+        self::PRIORITY_NORMAL,
+        self::PRIORITY_HIGH,
+        self::PRIORITY_EXTREME
+    ];
+
+    public static $statuses = [
+        self::STATUS_NEW,
+        self::STATUS_PRICING,
+        self::STATUS_ACCEPTED,
+        self::STATUS_IN_PROGRESS,
+        self::STATUS_DONE,
+        self::STATUS_FEEDBACK,
+        self::STATUS_POSTPONED,
+        self::STATUS_CLOSED,
+        self::STATUS_DENIED,
+        self::STATUS_PENDING,
+        self::STATUS_QUEUED,
+        self::STATUS_ON_REVIEW,
+    ];
 }

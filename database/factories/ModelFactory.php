@@ -11,32 +11,35 @@
 |
 */
 
+use App\Task;
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'name'           => $faker->name,
+        'email'          => $faker->safeEmail,
+        'password'       => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
     ];
 });
 
-$factory->define(\App\Task::class, function(Faker\Generator $faker){
+$factory->define(\App\Task::class, function (Faker\Generator $faker) {
     $title = $faker->sentence;
-   return [
-       'title' => $title,
-       'description' => $faker->text,
-       'slug' => str_slug($title),
-       'is_complete' => $faker->boolean(),
-       'priority' => array_rand([1,2,3,10]),
-       'by_user_id' => 1
-   ];
+
+    return [
+        'title'       => $title,
+        'description' => $faker->text,
+        'slug'        => str_slug($title),
+        'status'      => $faker->randomElement(Task::$statuses),
+        'priority'    => $faker->randomElement(Task::$priorities),
+        'by_user_id'  => 1
+    ];
 });
 
-$factory->define(\App\Client::class, function(Faker\Generator $faker){
-   return [
-       'name' => $faker->company,
-       'description' => $faker->text,
-       'logo' => $faker->imageUrl(),
-       'url' => $faker->url,
-   ];
+$factory->define(\App\Client::class, function (Faker\Generator $faker) {
+    return [
+        'name'        => $faker->company,
+        'description' => $faker->text,
+        'logo'        => $faker->imageUrl(),
+        'url'         => $faker->url,
+    ];
 });

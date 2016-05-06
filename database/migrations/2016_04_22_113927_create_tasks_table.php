@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('slug');
-            $table->boolean('is_complete');
+            $table->string('status');
             $table->smallInteger('priority');
             $table->unsignedInteger('by_user_id');
             $table->integer('cost');
