@@ -45,6 +45,11 @@ return [
     */
 
     'connections' => [
+        'test' => [
+            'driver' => 'mysql',
+            'database' => ':memory:',
+            'prefix' => '',
+        ],
 
         'sqlite' => [
             'driver' => 'sqlite',

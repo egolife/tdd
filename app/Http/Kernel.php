@@ -35,6 +35,12 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
         ],
+
+        'setup_wizard' => [
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            'setup_wizard.initializer',
+        ]
     ];
 
     /**
@@ -51,5 +57,7 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'admin' => AdminMiddleware::class,
+        'setup_wizard.initializer' => \MarvinLabs\SetupWizard\Middleware\SetupWizardInitializer::class,
+        'setup_wizard.trigger'     => \MarvinLabs\SetupWizard\Middleware\SetupWizardTrigger::class,
     ];
 }

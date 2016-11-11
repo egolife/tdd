@@ -38,4 +38,10 @@ class TaskTest extends TestCase
         factory(Task::class, 10)->create(['by_user_id' => User::first()->id]);
         $this->assertEquals(10, Task::all()->count());
     }
+
+    /** @test */
+    public function demo()
+    {
+        $this->assertEquals(1,1);
+    }
 }

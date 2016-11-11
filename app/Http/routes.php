@@ -17,11 +17,10 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['setup_wizard.trigger', 'auth']], function () {
     Route::get('home', 'DashboardController@index');
     Route::resource('tasks', 'TasksController');
-});
-
-Route::group(['middleware' => 'admin'], function () {
-    Route::resource('clients', 'ClientsController');
+    Route::group(['middleware' => ['admin']], function () {
+        Route::resource('clients', 'ClientsController');
+    });
 });
